@@ -89,5 +89,8 @@ files:
         LastPencilTest().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/258/stages/1303/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 15 Aug 2022 15:13:49 UTC
 record: -1
