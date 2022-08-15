@@ -11,6 +11,12 @@ class PenPaperGame(Game):
         self.users = ["Tik", "Tok"]
         self.turn = 0
 
+    def change_user(self):
+        self.turn = 1 if self.turn == 0 else 0
+
+    def __str__(self):
+        return self.pens * "|" + f"\n{self.users[self.turn]}'s turn:"
+
     def run(self):
         print("How many pencils would you like to use:")
         self.pens = int(input())
@@ -18,11 +24,10 @@ class PenPaperGame(Game):
         first_turn = input()
         self.turn = self.users.index(first_turn)
         while self.pens > 0:
-            print(self.pens * "|")
-            print(f"{self.users[self.turn]}'s turn:")
+            print(self)
             picked_pens = int(input())
             self.pens -= picked_pens
-            self.turn = 1 if self.turn == 0 else 0
+            self.change_user()
 
 
 pen_paper = PenPaperGame()
