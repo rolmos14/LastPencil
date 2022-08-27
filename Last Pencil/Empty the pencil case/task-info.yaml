@@ -41,7 +41,7 @@ files:
 - name: game.py
   visible: true
   learner_created: false
-feedback_link: https://hyperskill.org/projects/258/stages/1302/implement#comment
+feedback_link: https://hyperskill.org/learn/step/20063#comment
 status: Solved
 feedback:
   message: Congratulations!

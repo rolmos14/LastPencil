@@ -402,6 +402,10 @@ files:
     if __name__ == '__main__':
         LastPencilTest().run_tests()
   learner_created: false
-feedback_link: https://hyperskill.org/projects/258/stages/1306/implement#comment
-status: Unchecked
+feedback_link: https://hyperskill.org/learn/step/20067#comment
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Sat, 27 Aug 2022 16:45:09 UTC
 record: -1

@@ -1,3 +1,5 @@
+import random
+
 class Game:
 
     def run(self):
@@ -10,7 +12,7 @@ class PenPaperGame(Game):
 
     def __init__(self):
         self.pens = 0
-        self.users = ["Tik", "Tok"]
+        self.users = ["Bat", "Bot"]
         self.turn = 0
 
     def get_initial_pens(self):
@@ -30,7 +32,27 @@ class PenPaperGame(Game):
             return False
         return True
 
-    def pick_pens(self):
+    def lose_strategy(self, pens):
+        pointer = pens
+        while pointer >= 0:
+            if pointer == 1:
+                return True
+            pointer -= 4
+        return False
+
+    def bot_pick(self):
+        if self.lose_strategy(self.pens):
+            bot_pick = min(random.randint(1, 3), self.pens)
+        else:
+            # Check which valid pick leaves bot in a winning position
+            for pick in list(reversed(self.valid_picks)):
+                if self.lose_strategy(self.pens - int(pick)) and int(pick) <= self.pens:
+                    bot_pick = int(pick)
+                    break
+        print(bot_pick)
+        self.pens -= bot_pick
+
+    def user_pick(self):
         while True:
             picked_pens = input()
             if picked_pens not in self.valid_picks:
@@ -41,6 +63,14 @@ class PenPaperGame(Game):
             else:
                 self.pens -= int(picked_pens)
                 break
+
+    def pick_pens(self):
+        # Bot turn
+        if self.turn == 1:
+            self.bot_pick()
+        # User's turn
+        else:
+            self.user_pick()
 
     def game_over(self):
         return self.pens == 0
